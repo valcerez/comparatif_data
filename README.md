@@ -17,11 +17,6 @@ Comparateur interactif open source permettant de visualiser, analyser et interpr
 - ✅ Responsive **mobile-first** (testé iPhone)
 - ✅ Navigation fluide avec animations (Framer Motion)
 
----
-
-## 🖼️ Aperçu
-
-![Aperçu mobile/desktop à ajouter ici plus tard]
 
 ---
 
@@ -40,6 +35,26 @@ Comparateur interactif open source permettant de visualiser, analyser et interpr
 
 ---
 
+---
+
+## 📦 Installation
+git clone https://github.com/<ton_user>/outil_comparatif_data.git
+cd outil_comparatif_data
+npm install
+npm run dev
+
+---
+
+## 🌍 Ajouter des fichiers CSV
+Ajoute tes fichiers .csv dans le dossier : /public/datasets/
+
+Ils doivent avoir :
+    •	la 1ère colonne appelée Country Name
+	•	des années en colonnes (ex: 2000, 2001, …)
+
+# Projet guidé à 100% via ChatGPT + Next.js + open data 
+
+---
 ## 📁 Structure du projet
 
 ```bash
@@ -61,8 +76,3 @@ Comparateur interactif open source permettant de visualiser, analyser et interpr
 /public/datasets/
   *.csv                # Fichiers sources publics
 
-  📦 Installation
-  git clone https://github.com/<ton_user>/outil_comparatif_data.git
-cd outil_comparatif_data
-npm install
-npm run dev
