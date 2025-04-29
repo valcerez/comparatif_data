@@ -26,10 +26,6 @@ export default function Home() {
     label1: string;
     label2: string;
   } | null>(null);
-  const [correlation, setCorrelation] = useState<{
-    r: number;
-    explanation: string;
-  } | null>(null);
   const [yearRange, setYearRange] = useState<{ min: number; max: number } | null>(null);
 
   const resetAll = () => {
@@ -37,14 +33,12 @@ export default function Home() {
     setSelectedCountry(null);
     setCountries([]);
     setChartData(null);
-    setCorrelation(null);
     setYearRange(null);
   };
 
   const resetCountry = () => {
     setSelectedCountry(null);
     setChartData(null);
-    setCorrelation(null);
     setYearRange(null);
   };
 
