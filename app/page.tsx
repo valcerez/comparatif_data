@@ -71,11 +71,6 @@ export default function Home() {
       label2: fileB,
     });
     setYearRange({ min: minYear, max: maxYear });
-
-    const r = calculatePearsonCorrelation(y1, y2);
-    const explanation = explainCorrelation(r);
-
-    setCorrelation({ r, explanation });
   };
 
   return (
