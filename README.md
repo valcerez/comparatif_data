@@ -52,7 +52,7 @@ Ils doivent avoir :
     •	la 1ère colonne appelée Country Name
 	•	des années en colonnes (ex: 2000, 2001, …)
 
-# Projet guidé à 100% via ChatGPT + Next.js + open data 
+# Projet guidé à 100% via ChatGPT + Next.js + open data (il faut le dire)
 
 ---
 ## 📁 Structure du projet
