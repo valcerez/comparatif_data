@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Outil Comparatif de Données Publiques
 
-## Getting Started
+Comparateur interactif open source permettant de visualiser, analyser et interpréter des données issues de jeux de données publics.
 
-First, run the development server:
+> 🧠 Pensé pour les curieux, étudiants, enseignants, journalistes, citoyens et développeurs débutants.
+
+---
+
+## 🚀 Fonctionnalités
+
+- ✅ Sélection de 2 jeux de données CSV (ex: PIB, population, éducation, etc.)
+- ✅ Sélection d’un pays commun aux deux jeux
+- ✅ Visualisation en graphique avec **double axe Y**
+- ✅ Calcul automatique de la **corrélation de Pearson**
+- ✅ **Explication pédagogique** de la corrélation
+- ✅ Sélection dynamique de plage d’années
+- ✅ Responsive **mobile-first** (testé iPhone)
+- ✅ Navigation fluide avec animations (Framer Motion)
+
+---
+
+## 🖼️ Aperçu
+
+![Aperçu mobile/desktop à ajouter ici plus tard]
+
+---
+
+## 🏗️ Stack technique
+
+| Élément | Techno |
+|--------|--------|
+| Framework | [Next.js 14](https://nextjs.org/) (App Router) |
+| UI | React + TailwindCSS + shadcn/ui |
+| Graphiques | [Recharts](https://recharts.org/) |
+| Animation | [Framer Motion](https://www.framer.com/motion/) |
+| Analyse stats | Corrélation de Pearson (JS) |
+| Données | CSV publics (dans `/public/datasets/`) |
+| Déploiement | Vercel (gratuit) |
+| Versioning | Git + GitHub |
+
+---
+
+## 📁 Structure du projet
 
 ```bash
+/app
+  page.tsx             # page principale
+  /api/datasets        # API listant les datasets disponibles
+
+/components
+  DatasetSelector.tsx  # Sélection des fichiers
+  ChartDisplay.tsx     # Graphique Recharts
+  CorrelationInfo.tsx  # Résumé du résultat
+
+/lib
+  dataUtils.ts         # Chargement & nettoyage CSV
+  statsUtils.ts        # Calcul de corrélation
+  explanationUtils.ts  # Interprétation pédagogique
+  datasetLabels.ts     # Noms humains des fichiers
+
+/public/datasets/
+  *.csv                # Fichiers sources publics
+
+  📦 Installation
+  git clone https://github.com/<ton_user>/outil_comparatif_data.git
+cd outil_comparatif_data
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
