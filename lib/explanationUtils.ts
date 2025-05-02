@@ -1,15 +1,25 @@
-export function explainCorrelation(r: number): string {
+export function explainCorrelation(r: number, label1: string, label2: string): string {
+  const rounded = r.toFixed(2);
   const absR = Math.abs(r);
 
-  if (r === 0) {
-    return "Il n'y a aucune corrélation entre les deux variables.";
-  } else if (absR < 0.3) {
-    return "La corrélation est très faible. Les variables semblent indépendantes.";
+  let base = `r = ${rounded} ➜ `;
+
+  if (absR < 0.2) {
+    base += "Aucune corrélation significative.";
+  } else if (absR < 0.4) {
+    base += "Corrélation faible.";
   } else if (absR < 0.6) {
-    return `Corrélation modérée${r > 0 ? ' : elles ont tendance à évoluer ensemble.' : ' : quand l’une augmente, l’autre diminue légèrement.'}`;
-  } else if (absR < 0.9) {
-    return `Corrélation forte${r > 0 ? ' : les deux variables évoluent dans le même sens.' : ' : elles évoluent souvent en sens inverse.'}`;
+    base += "Corrélation modérée.";
+  } else if (absR < 0.8) {
+    base += "Corrélation forte.";
   } else {
-    return `Corrélation très forte${r > 0 ? ' : les variables sont quasiment liées de manière linéaire.' : ' : forte opposition systématique entre les deux.'}`;
+    base += "Corrélation très forte.";
   }
+
+  const direction =
+    r > 0
+      ? `Quand ${label1} augmente, ${label2} a tendance à augmenter aussi.`
+      : `Quand ${label1} augmente, ${label2} a tendance à diminuer.`;
+
+  return `${base} ${direction}`;
 }

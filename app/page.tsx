@@ -9,7 +9,7 @@ import {
   getCommonCountries,
 } from '@/lib/dataUtils';
 import ChartDisplay from '@/components/ChartDisplay';
-import { calculatePearsonCorrelation } from '@/lib/statsUtils';
+import { calculatePearsonCorrelation, calculatePValue } from '@/lib/statsUtils';
 import { explainCorrelation } from '@/lib/explanationUtils';
 import CorrelationInfo from '@/components/CorrelationInfo';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -184,7 +184,13 @@ export default function Home() {
                     filteredData.map((d) => d.y1),
                     filteredData.map((d) => d.y2)
                   );
-                  const explanationFiltered = explainCorrelation(rFiltered);
+                  const explanationFiltered = explainCorrelation(
+                    rFiltered,
+                    getLabelForDataset(chartData.label1),
+                    getLabelForDataset(chartData.label2)
+                  );
+                  const pValue = calculatePValue(rFiltered, filteredData.length);
+                  const nPoints = filteredData.length;
 
                   return (
                     <>
@@ -199,6 +205,8 @@ export default function Home() {
                       <CorrelationInfo
                         r={rFiltered}
                         explanation={explanationFiltered}
+                        pValue={pValue}
+                        nPoints={nPoints}
                       />
                     </>
                   );
