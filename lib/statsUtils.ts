@@ -16,7 +16,6 @@ export function calculatePValue(r: number, n: number): number {
   if (n < 3) return 1; // Pas assez de points pour tester
 
   const t = (r * Math.sqrt(n - 2)) / Math.sqrt(1 - r * r);
-  const df = n - 2;
 
   // Approximation avec la fonction d'erreur pour grands n (gaussienne)
   const p = 2 * (1 - normalCDF(Math.abs(t)));

@@ -203,7 +203,6 @@ export default function Home() {
                       />
 
                       <CorrelationInfo
-                        r={rFiltered}
                         explanation={explanationFiltered}
                         pValue={pValue}
                         nPoints={nPoints}
